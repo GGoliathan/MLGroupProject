@@ -7,17 +7,21 @@ Original file is located at
     https://colab.research.google.com/drive/1eOKciDEe1uXPreKiom_s7_hZoEBFdLGm
 """
 
-import os
+import os, json
 
-# Extract your real API key (remove the KGAT_ prefix!)
-os.environ["KAGGLE_USERNAME"] = "davidludemann"
-os.environ["KAGGLE_KEY"] = "b0b3bce7e79f0e1028621d7fcb2d7546"
+os.makedirs("/root/.kaggle", exist_ok=True)
 
-# Delete old files to prevent conflicts
-!rm -f ~/.kaggle/kaggle.json
-!rm -f ~/.config/kaggle/kaggle.json
+creds = {
+    "username": "davidludemann",
+    "key": "e2372b162e46c73d37ea6ce0abaf1b1b"  
+}
 
-print("Kaggle credentials set via environment variables. Ready!")
+with open("/root/.kaggle/kaggle.json", "w") as f:
+    json.dump(creds, f)
+
+os.chmod("/root/.kaggle/kaggle.json", 0o600)
+
+print("Created /root/.kaggle/kaggle.json")
 
 !kaggle competitions list
 
