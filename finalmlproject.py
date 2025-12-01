@@ -137,6 +137,14 @@ use_amp = config["use_amp"]
 patience = config["early_stopping_patience"]
 label_smoothing = config.get("label_smoothing", 0.0)  # NEW
 
+from transformers import DistilBertForSequenceClassification
+
+# Create DistilBERT model with 2 output classes
+model = DistilBertForSequenceClassification.from_pretrained(
+    "distilbert-base-uncased",
+    num_labels=2
+)
+
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model.to(device)
 
