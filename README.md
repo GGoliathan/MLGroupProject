@@ -1,5 +1,5 @@
 # **Disaster Tweet Classification — DistilBERT Fine-Tuning Project**  
-*A Machine Learning Project by David Ludemann*
+*A Machine Learning Project by David Ludemann & Emilio Villar*
 
 ---
 
