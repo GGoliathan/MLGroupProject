@@ -9,14 +9,15 @@ Original file is located at
 
 import os
 
-# NEW Kaggle API authentication (ONLY token needed)
-os.environ["KAGGLE_API_TOKEN"] = "KGAT_b0b3bce7e79f0e1028621d7fcb2d7546"
+# Extract your real API key (remove the KGAT_ prefix!)
+os.environ["KAGGLE_USERNAME"] = "davidludemann"
+os.environ["KAGGLE_KEY"] = "b0b3bce7e79f0e1028621d7fcb2d7546"
 
-# Remove old credentials to avoid conflicts
+# Delete old files to prevent conflicts
 !rm -f ~/.kaggle/kaggle.json
 !rm -f ~/.config/kaggle/kaggle.json
 
-print("Kaggle API Token set. Ready.")
+print("Kaggle credentials set via environment variables. Ready!")
 
 !kaggle competitions list
 
